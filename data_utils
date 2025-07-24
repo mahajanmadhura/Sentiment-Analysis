@@ -1,0 +1,26 @@
+import pandas as pd
+
+def load_data():
+    try:
+        df = pd.read_csv('tweets.csv')
+        print("Data loaded successfully from file")
+    except Exception:
+        print("Using sample data as file not found")
+        data = {
+            'text': [
+                "I love this product! It's amazing.",
+                "Terrible experience, would not recommend.",
+                "It's okay, nothing special.",
+                "The service was excellent and fast.",
+                "Worst purchase ever, complete waste of money.",
+                "Really good value for the price.",
+                "Not what I expected, very disappointed.",
+                "Perfect in every way, highly satisfied!",
+                "Average quality, could be better.",
+                "Absolutely fantastic, exceeded my expectations."
+            ],
+            'sentiment': ['positive', 'negative', 'neutral', 'positive', 'negative',
+                          'positive', 'negative', 'positive', 'neutral', 'positive']
+        }
+        df = pd.DataFrame(data)
+    return df
