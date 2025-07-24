@@ -1,0 +1,30 @@
+import nltk
+import re
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+
+def download_nltk_resources():
+    resources = [
+        ('tokenizers/punkt', 'punkt'),
+        ('corpora/stopwords', 'stopwords'),
+        ('corpora/wordnet', 'wordnet')
+    ]
+    for path, name in resources:
+        try:
+            nltk.data.find(path)
+        except LookupError:
+            nltk.download(name)
+
+def clean_text(text):
+    if not isinstance(text, str):
+        return ""
+    lemmatizer = WordNetLemmatizer()
+    text = text.lower()
+    text = re.sub(r'http\S+|www\S+|https\S+|\@\w+|\#', '', text, flags=re.MULTILINE)
+    text = re.sub(r'[^\w\s]', '', text)
+    try:
+        tokens = nltk.word_tokenize(text)
+        tokens = [lemmatizer.lemmatize(token) for token in tokens if token not in stopwords.words('english')]
+        return ' '.join(tokens)
+    except Exception:
+        return text
