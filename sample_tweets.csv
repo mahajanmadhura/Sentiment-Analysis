@@ -1,0 +1,11 @@
+text,sentiment
+I love this product! It's amazing.,positive
+"Terrible experience, would not recommend.",negative
+"It's okay, nothing special.",neutral
+The service was excellent and fast.,positive
+"Worst purchase ever, complete waste of money.",negative
+Really good value for the price.,positive
+"Not what I expected, very disappointed.",negative
+"Perfect in every way, highly satisfied!",positive
+"Average quality, could be better.",neutral
+"Absolutely fantastic, exceeded my expectations.",positive
